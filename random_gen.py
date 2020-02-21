@@ -7,13 +7,10 @@ def random_x(exa, charac):
 
     return new_data
 
-def random_ydisc(exa, range):
+def random_ydisc(exa, max):
 
-    new_data = np.random.rand(exa, 1)
-
-    for rows in range(3): #new_data.shape[0]):
-        print(rows)
-        #new_data[rows,0] = new_data[rows,0].round
+    new_data = np.random.rand(exa, 1) * max
+    new_data = np.round(new_data)
 
     return new_data
 
@@ -23,4 +20,10 @@ def random_ycont(exa):
 
     return new_data
 
-print(random_ydisc(3, 5))
+def complete_set(x, y):
+    complete = np.hstack((x,y))
+    return complete
+
+x = random_x(20, 5)
+y = random_ydisc(20, 10)
+print(complete_set(x, y))
